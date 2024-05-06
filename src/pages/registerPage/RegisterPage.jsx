@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import photo from '../../assets/images/login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { useContext } from 'react';
@@ -7,7 +7,8 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const RegisterPage = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -29,16 +30,17 @@ const RegisterPage = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/');
                 form.reset();
             })
             .catch(error => {
                 console.error(error.message);
-               Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: 'Please try again later!'
-               })
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: 'Please try again later!'
+                })
                 form.reset();
             })
 
@@ -54,7 +56,7 @@ const RegisterPage = () => {
                     <img src={photo} alt="" />
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <h1 className="text-3xl text-center font-bold">Register!</h1>
+                    <h1 className="text-3xl text-center font-bold mt-6">Register!</h1>
                     <form onSubmit={handleRegister}
                         className="card-body">
                         <div className="form-control">
@@ -88,7 +90,7 @@ const RegisterPage = () => {
                         <FaGoogle></FaGoogle>
                         <FaLinkedin></FaLinkedin>
                     </div>
-                    <p className='text-center'>Already have an account <Link className='text-blue-700 ' to={'/login'}> login</Link></p>
+                    <p className='text-center p-4'>Already have an account <Link className='text-blue-700 ' to={'/login'}> login</Link></p>
                 </div>
             </div>
         </div>

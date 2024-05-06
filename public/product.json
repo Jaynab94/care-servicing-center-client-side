@@ -1,51 +1,38 @@
 [
-    {
-      "product": {
-        "photo": "https://i.ibb.co/LQnBhFR/9-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    },
-    {
-      "product": {
-        "photo": "https://i.ibb.co/W0dcWzL/8-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    },
-    {
-      "product": {
-        "photo": "https://i.ibb.co/wzMkrKx/pngwing-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    },
-    {
-      "product": {
-        "photo": "https://i.ibb.co/tZxyddb/88-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    },
-    {
-      "product": {
-        "photo": "https://i.ibb.co/tZxyddb/88-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    },
-    {
-      "product": {
-        "photo": "https://i.ibb.co/d5WM62M/5-1.jpg",
-        "title": "Car Engine Plug",
-        "price": "$20",
-        "rating": "5 stars"
-      }
-    }
-  ]
-  
+  {
+    "photo": "https://i.ibb.co/LQnBhFR/9-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  },
+  {
+    "photo": "https://i.ibb.co/W0dcWzL/8-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  },
+  {
+    "photo": "https://i.ibb.co/wzMkrKx/pngwing-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  },
+  {
+    "photo": "https://i.ibb.co/tZxyddb/88-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  },
+  {
+    "photo": "https://i.ibb.co/tZxyddb/88-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  },
+  {
+    "photo": "https://i.ibb.co/d5WM62M/5-1.jpg",
+    "title": "Car Engine Plug",
+    "price": "$20",
+    "rating": "5 stars"
+  }
+]

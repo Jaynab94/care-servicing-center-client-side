@@ -1,14 +1,15 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
-import { Result } from 'postcss';
+
 import Swal from 'sweetalert2';
 
 const LoginPage = () => {
-    const { signInUser } = useContext(AuthContext)
+    const { signInUser } = useContext(AuthContext);
+    const navigate= useNavigate();
 
 
 
@@ -41,6 +42,7 @@ const LoginPage = () => {
                     text: error.message,
                 });
             })
+           navigate('/')
 
 
 
@@ -85,7 +87,7 @@ const LoginPage = () => {
                         <FaLinkedin></FaLinkedin>
 
                     </div>
-                    <p className='text-center'>New to Car doctore <Link className='text-blue-700' to={'/register'}>Register</Link></p>
+                    <p className='text-center p-2'>New to Car doctore <Link className='text-blue-700' to={'/register'}>Register</Link></p>
                 </div>
             </div>
         </div>

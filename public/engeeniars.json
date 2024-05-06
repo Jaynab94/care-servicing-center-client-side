@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Alex Johnson",
+        "photo": "https://i.ibb.co/kQ2G7z9/Rectangle-7.jpg",
+        "expertise": "Car Engine Plug Engineer"
+    },
+    {
+        "name": " Michael Chen",
+        "photo": "https://i.ibb.co/w0PK9wG/Rectangle-7-1.jpg",
+        "expertise": "Plug Engine Specialist"
+    },
+    {
+        "name": "Emily Rodriguez ",
+        "photo": "https://i.ibb.co/J5D26VM/Adobe-Stock-221156982-Preview.jpg",
+        "expertise": "Car Engine Plug Technician"
+    }
+]

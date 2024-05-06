@@ -5,14 +5,14 @@ import ServiceCrad from "./ServiceCrad";
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('services.json')
+        fetch('http://localhost:5000/add')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
 
     return (
-        <div className="mt-4">
+        <div className="mt-14">
             <div className="space-y-4">
                 <h1 className="text-2xl text-center font-bold text-[#FF3811]">Service</h1>
                 <h1 className="font-bold text-5xl text-center">Our Service Area</h1>

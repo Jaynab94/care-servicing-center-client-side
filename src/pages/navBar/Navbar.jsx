@@ -1,7 +1,36 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 const Navbar = () => {
+
+    const { user, logOutUser } = useContext(AuthContext);
+    const navigate=useNavigate();
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(result => {
+                console.log(result);
+
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "log out successfully!",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/login')
+
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+    }
+
     const navLink = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link>About</Link></li>
@@ -10,6 +39,8 @@ const Navbar = () => {
         <li><Link>Contact</Link></li>
 
     </>
+
+
 
     return (
         <div className="navbar bg-base-100 h-28 mb-2">
@@ -20,7 +51,7 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
 
-                        {navLink }
+                        {navLink}
                     </ul>
                 </div>
                 <Link className="btn btn-ghost text-xl">
@@ -29,11 +60,17 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    { navLink}
+                    {navLink}
                 </ul>
             </div>
             <div className="navbar-end">
-            <button className="btn btn-outline btn-error">Appointment</button>
+                <button className="btn btn-outline btn-error mr-4">Appointment</button>
+                {
+                    user ?
+                        <button onClick={handleLogOut} className="btn btn-outline btn-error">Logout</button>
+                        :
+                        <Link className="btn btn-outline btn-error" to={'/login'}>Login</Link>
+                }
             </div>
         </div>
     );

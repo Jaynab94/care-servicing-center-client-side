@@ -4,8 +4,8 @@ import { FaLocationPin } from 'react-icons/fa6';
 
 const Loc = () => {
     return (
-        <div className=" h-60 mt-10 bg-black rounded-lg flex  items-center justify-evenly text-white">
-            <div className="flex text-white items-center gap-4">
+        <div className=" h-60 mt-10 bg-black rounded-lg md:flex  items-center justify-evenly text-white">
+            <div className="flex  text-white items-center gap-4">
                 <FaCalendar className='text-2xl'></FaCalendar>
                 <div>
                     <p>We are open monday-friday</p>

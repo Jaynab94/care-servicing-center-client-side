@@ -2,7 +2,7 @@ import aboutPerson from '../../../assets/images/about_us/person.jpg'
 import aboutPrs from '../../../assets/images/about_us/parts.jpg'
 const About = () => {
     return (
-        <div className="hero min-h-screen P-4">
+        <div className="hero mt-10 P-4">
             <div className="hero-content flex-col lg:flex-row">
 
                 <div className='lg:w-1/2 relative  '>

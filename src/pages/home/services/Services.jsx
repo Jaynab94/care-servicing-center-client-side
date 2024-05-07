@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import ServiceCrad from "./ServiceCrad";
 
 
+
 const Services = () => {
     const [services, setServices] = useState([]);
+    
     useEffect(() => {
         fetch('http://localhost:5000/add')
             .then(res => res.json())

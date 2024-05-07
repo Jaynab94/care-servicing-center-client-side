@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const ServiceCrad = ({ service }) => {
     console.log(service);
     const { img, price, title,_id } = service;
+    
 
 
 

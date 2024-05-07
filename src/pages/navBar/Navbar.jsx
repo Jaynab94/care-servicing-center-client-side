@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const Navbar = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOutUser()
@@ -37,6 +37,10 @@ const Navbar = () => {
         <li><Link>Services</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
+        {
+            user ? <li><Link to={'/bookings'}>My Bookings</Link></li> :
+                ''
+        }
 
     </>
 

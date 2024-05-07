@@ -1,8 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import cheakOut from '../../assets/images/checkout/checkout.png'
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { TbSort09 } from "react-icons/tb";
 
 
 const CheckOutPage = () => {
@@ -10,6 +11,7 @@ const CheckOutPage = () => {
     console.log(services);
     const { title, _id, price, img } = services;
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleBookOrder = (e) => {
         e.preventDefault();
@@ -52,6 +54,7 @@ const CheckOutPage = () => {
                     })
                 }
                 form.reset();
+                navigate('/');
 
             })
 

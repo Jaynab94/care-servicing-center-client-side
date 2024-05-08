@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
 
 
-const BookingRow = ({ booking,handleDelete,handleConfirm }) => {
+const BookingRow = ({ booking, handleDelete, handleConfirm }) => {
 
-    const { customer, Total_paid, date, _id, customer_Eamil, services_img, services_title } = booking;
-    
+    const { customer, Total_paid, date, _id, customer_Eamil, services_img, services_title, status } = booking;
+
 
 
 
@@ -44,7 +44,11 @@ const BookingRow = ({ booking,handleDelete,handleConfirm }) => {
             <td>{date}</td>
             <td>{services_title}</td>
             <th>
-                <button onClick={()=>handleConfirm(_id)} className="btn btn-ghost btn-xs">confirm</button>
+                {
+                    status === 'confirm' ?<span className="font-bold text-white border bg-green-600 rounded-full p-2">confirmed</span>
+                    :
+                        <button onClick={() => handleConfirm(_id)} className="btn btn-ghost btn-xs"> Please Confirm</button>
+                }
             </th>
         </tr>
     );

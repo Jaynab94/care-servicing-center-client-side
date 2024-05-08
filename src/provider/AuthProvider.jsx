@@ -3,11 +3,13 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import PropTypes from 'prop-types'
 
 import app from "../firebase/Firebase.config";
+
 const auth = getAuth(app);
 
 
 
 export const AuthContext = createContext();
+
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);

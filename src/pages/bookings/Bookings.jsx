@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const Bookings = () => {
@@ -12,10 +13,15 @@ const Bookings = () => {
 
 
     useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => setBookings(data))
-    }, [])
+        axios.get(url, { withCredentials: true })
+            .then(res => {
+                setBookings(res.data);
+               
+            })
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => setBookings(data))
+    }, [url])
 
 
     const handleDelete = (id) => {
@@ -59,13 +65,11 @@ const Bookings = () => {
     const handleConfirm = (id) => {
         console.log(id);
         fetch(`http://localhost:5000/bookings/${id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                status: 'confirmed'
-            })
+            body: JSON.stringify({ status: 'confirm' })
 
 
         })
@@ -79,6 +83,11 @@ const Bookings = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
+                    const remainedBookings = bookings.filter(booking => booking._id !== id);
+                    const update = bookings.find(booking => booking._id === id);
+                    update.status = 'confirm';
+                    const newBookings = [update, ...remainedBookings];
+                    setBookings(newBookings);
                 }
             })
 

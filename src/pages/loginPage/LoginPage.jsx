@@ -1,15 +1,18 @@
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../assets/images/login/login.svg'
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const LoginPage = () => {
     const { signInUser } = useContext(AuthContext);
-    const navigate= useNavigate();
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
 
 
 
@@ -24,7 +27,23 @@ const LoginPage = () => {
         //signInUser
         signInUser(email, password)
             .then(result => {
-                console.log(result.user);
+                const loggedInUser = (result.user);
+                console.log(loggedInUser);
+                const user = { email }
+                // jwt token
+
+
+
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            navigate(location?.state ? location.state : '/');
+                        }
+                    })
+
+
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -32,6 +51,10 @@ const LoginPage = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+
+
+
+
                 form.reset();
             })
             .catch(error => {
@@ -42,7 +65,7 @@ const LoginPage = () => {
                     text: error.message,
                 });
             })
-           navigate('/')
+
 
 
 
